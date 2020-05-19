@@ -310,4 +310,4 @@ bot.on('ready', () => {
 })
 
 
-bot.login(proccess.env.token);
+bot.login(process.env.token);
