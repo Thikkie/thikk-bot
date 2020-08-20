@@ -272,6 +272,33 @@ bot.on('message', async message => {
        console.log(trueredditlink)
     }  
   });
+  //testtingg
+  bot.on('message', async message => {
+    const fetch = require("node-fetch")
+    if (message.content.includes ('r/')){
+    
+      const subReddits = message.content.replace('r/','');
+    const random = subReddits[Math.floor(Math.random() * subReddits.length)];
+    const url = `https://www.reddit.com/r/${random}.json?sort=top&t=week`;
+    const res = await fetch(url);
+    const json = await res.json();
+    const posts = json.data
+       .filter(f => msg.channel.nsfw || !f.nsfw);
+  
+    if (!posts.length) return message.channel.send("No posts, maybe try in a nsfw channel");
+  
+      const post = posts[Math.floor(Math.random() * posts.length)];
+      const redditUrl = `https://www.reddit.com${post.reddit}`;
+      const embed = new MessageEmbed()
+          .setColor('PURPLE')
+          .setImage(`https://imgur.com/${imageData.hash}${imageData.ext.replace(/\?.*/, '')}`)
+          .setTitle("Post from r/" + random)
+          .setURL(redditUrl)
+          .setFooter("Requested by ", user.displayAvatarURL)
+          //this might be imgur upvotes or reddit upvotes idk
+          .addField("Votes", post.score);
+      message.channel.send(embed);
+  }});
 
 
 
