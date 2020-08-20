@@ -196,7 +196,7 @@ bot.on('message', message => {
     .then(msg => bot.destroy())
     
     .then(message.channel.send("You can't kill me, Im not alive."))
-    .then(() => bot.login("NDg4Njk5ODk0MTg2NTA4Mjkw.DngDnQ.hiHEEb2cAvwhHNTDxvBo4oNGV2U"));
+    .then(() => bot.login(process.env.token));
     
 
   });
