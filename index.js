@@ -55,14 +55,8 @@ bot.on("message", (message) => {
     
     
     
-    "Die":"monster!",
-    "You":"dont",
-    "belong":"in",
-    "this":"world!",
-    "It":"was",
-    "not":"by",
-    "my":"hand",
-    "that":"i",
+    "This bot suck":"No u!",
+    
     
 
     
