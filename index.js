@@ -1,4 +1,4 @@
-console.log("Im now alive");
+console.log("Hello World");
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
@@ -10,6 +10,8 @@ bot.on('message', message => {
     }
     
 });
+
+//Not funny joke
 bot.on('message', message => {
   
   if (message.content === 'kill me pls') {
@@ -45,6 +47,8 @@ bot.on('message', message => {
       
     }
   });
+
+  //dialouge tree
 bot.on("message", (message) => {
     const responseObject = {
 
@@ -100,34 +104,27 @@ bot.on('message', message => {
   }});
 
 
-bot.on('message', message => {
-    
-    if (message.content === 'ur mom gae') {
-        
-        message.channel.send('no you');
-    }
-   
-});
+
 
 
 
   
  
 
-
+//invite link
    
 bot.on('message', message => {
     
-    if (message.content.includes ('stfu')) {
-        message.delete(1);
-        message.channel.send('Naughty');
-    }
+    
     if (message.content.includes ('%invite')) {
       message.delete(1);
       message.channel.send('https://discordapp.com/oauth2/authorize?client_id=488699894186508290&scope=bot&permissions=8');
   }
    
+  
+  
 });
+//help
 bot.on('message', message => {
     
   if (message.content.includes ('%help')) {
@@ -141,7 +138,7 @@ bot.on('message', message => {
 
 
 
-
+//Say anonymous
 
 bot.on('message', message => {
     if (message.content.startsWith("%say")) {
@@ -179,7 +176,7 @@ bot.on('message', message => {
     {var answers = ['Yes','Kinda','100%.','no.','sure is','I think not','Probably',"Probably not"]
     var randomAnswer = answers[Math.floor(Math.random() * answers.length)];
     message.channel.send(randomAnswer);
-
+//bot restart
   }});
   bot.on('message', message => {
     var Percentage = ["92%",'94%',"56%",'72%',"91%","89%","69%"]
@@ -198,7 +195,7 @@ bot.on('message', message => {
 
   });
 
-//testing
+//Random cat
 const superagent = require('superagent');
 bot.on('message', async message => {
   if (message.content.includes ('%cat')){
@@ -217,29 +214,8 @@ bot.on('message', async message => {
    
   }
   });
-  //testing 2
-  const snekfetch=require("snekfetch");
-  bot.on('message', async message => {
-    
-    if (message.content.includes ('%meme')){
-      let msg = await  message.channel.send("Meme?? Okay");
-      let {body} = await snekfetch
-      .get("https://www.reddit.com/r/dankmemes.json?sort=top&t=week")
-      const allowed = message.channel.nsfw ? body.data.children : body.data.children.filter(post => !post.data.over_18);
-      if (!allowed.length) return message.channel.send('It seems we are out of fresh memes!, Try again later.');
-      const randomnumber = Math.floor(Math.random() * allowed.length)       
-
-
-
-       let mEmbed = new Discord.RichEmbed()
-        .setColor(0x00A2E8) 
-        .setImage(allowed[randomnumber].data.url)
-        .setTimestamp()
-        .setFooter("r/dankmemes", bot.user.displayAvatarURL)
-       message.channel.send({embed: mEmbed})
-    }  
-  });
-  //Testing Full Project 
+  
+  //Reddit Snekfetch
 
   
   bot.on('message', async message => {
@@ -267,7 +243,7 @@ bot.on('message', async message => {
        console.log(trueredditlink)
     }  
   });
-  //testtingg
+  //Reddit Puppy
   bot.on('message', async message => {
   
     if (message.content.includes ('r/')){
