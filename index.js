@@ -269,7 +269,7 @@ bot.on('message', async message => {
         .setTimestamp()
         .setFooter("r/" + redditlink, bot.user.displayAvatarURL)
        message.channel.send({embed: mEmbed})
-       console.log(trueredditlink);
+       console.log(trueredditlink)
     }  
   });
 
