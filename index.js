@@ -290,14 +290,15 @@ bot.on('message', async message => {
       const post = posts[Math.floor(Math.random() * posts.length)];
       const redditUrl = `https://www.reddit.com${post.reddit}`;
       const embed = new MessageEmbed()
-          .setColor('PURPLE')
+          .setColor(0x00A2E8)
           .setImage(`https://imgur.com/${imageData.hash}${imageData.ext.replace(/\?.*/, '')}`)
           .setTitle("Post from r/" + random)
           .setURL(redditUrl)
           .setFooter("Requested by ", user.displayAvatarURL)
           //this might be imgur upvotes or reddit upvotes idk
           .addField("Votes", post.score);
-      message.channel.send(embed);
+      message.channel.send(embed)
+      message.channel.send(url)
   }});
 
 
