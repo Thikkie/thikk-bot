@@ -251,7 +251,7 @@ bot.on('message', async message => {
   bot.on('message', async message => {
     
     if (message.content.includes ('r%')){
-      const snekfetch = require("snekfetch");
+      const snekfetch = require("snekfetch")
       var redditlink = message.content.replace('r%','');
       var trueredditlink = "https://www.reddit.com/r/" + redditlink + ".json?sort=top&t=week";
       console.log(trueredditlink);
