@@ -13,7 +13,7 @@
     "e621": "0.0.2",
     "node-fetch": "^2.6.0",
     "random-puppy": "^1.1.0",
-    "snekfetch": "^4.0.4",
+    "snekfetch": "^3.6.4",
     "superagent": "^5.3.1"
   }
 }
