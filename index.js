@@ -251,6 +251,7 @@ bot.on('message', async message => {
   bot.on('message', async message => {
     
     if (message.content.includes ('r%')){
+      const snekfetch = require("snekfetch");
       var redditlink = message.content.replace('r%','');
       var trueredditlink = "https://www.reddit.com/r/" + redditlink + ".json?sort=top&t=week";
       console.log(trueredditlink);
@@ -274,36 +275,23 @@ bot.on('message', async message => {
   });
   //testtingg
   bot.on('message', async message => {
-    const fetch = require("node-fetch")
+  
     if (message.content.includes ('r/')){
-    
-      const subReddits = message.content.replace('r/','');
-    const random = subReddits[Math.floor(Math.random() * subReddits.length)];
-    const url = `https://www.reddit.com/r/${random}.json?sort=top&t=week`;
-    const res = await fetch(url);
-    const json = await res.json();
-    const posts = json.data
-       .filter(f => msg.channel.nsfw || !f.nsfw);
+      const randomPuppy = require("random-puppy")
+      const subReddits = message.content.replace('r/','')
+      
+      
   
-    if (!posts.length) return message.channel.send("No posts, maybe try in a nsfw channel");
-  
-      const post = posts[Math.floor(Math.random() * posts.length)];
-      const redditUrl = `https://www.reddit.com${post.reddit}`;
-      const embed = new MessageEmbed()
-          .setColor(0x00A2E8)
-          .setImage(`https://imgur.com/${imageData.hash}${imageData.ext.replace(/\?.*/, '')}`)
-          .setTitle("Post from r/" + random)
-          .setURL(redditUrl)
-          .setFooter("Requested by ", user.displayAvatarURL)
-          //this might be imgur upvotes or reddit upvotes idk
-          .addField("Votes", post.score);
-      message.channel.send(embed)
-      message.channel.send(url)
-  }});
-
-
-
-
+      const memeImage = await randomPuppy(subReddits);
+          const memeEmbed = new Discord.RichEmbed()
+              .setColor("RANDOM")
+              .setImage(memeImage)
+              .setTitle(`From r/${subReddits}`)
+              .setFooter("Requested by "+ message.author.username,message.author.avatarURL)
+              .setURL(`https://reddit.com/r/${subReddits}`);
+              message.channel.send({embed: memeEmbed})
+     
+    }});
 
 
 
