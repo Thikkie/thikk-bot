@@ -221,13 +221,13 @@ bot.on('message', async message => {
   bot.on('message', async message => {
     
     if (message.content.includes ('r%')){
-      const snekfetch = require("snekfetch")
       var redditlink = message.content.replace('r%','');
       var trueredditlink = "https://www.reddit.com/r/" + redditlink + ".json?sort=top&t=week";
       console.log(trueredditlink);
       let msg = await  message.channel.send("Okay...");
-      let {body} = await snekfetch
-      .get(trueredditlink)
+
+      const fetch = require("node-fetch")
+      let body = await fetch(trueredditlink).then(res => res.json())
       const allowed = message.channel.nsfw ? body.data.children : body.data.children.filter(post => !post.data.over_18);
       if (!allowed.length) return message.channel.send('It seems we are out of fresh memes!, Try again later.');
       const randomnumber = Math.floor(Math.random() * allowed.length)       
